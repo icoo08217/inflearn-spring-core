@@ -31,4 +31,16 @@ public class ConfigurationSingletonTest {
         assertThat(memberRepository1).isSameAs(memberRepository2);
         assertThat(memberRepository1).isSameAs(memberRepository);
     }
+
+    @Test
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+
+        // @Configuration 어노테이션을 삭제하면
+        // 스프링 컨테이너에 스프링 빈으로 등록이 되긴 하지만
+        // 싱글톤을 보장해주지 않는다.
+    }
 }
