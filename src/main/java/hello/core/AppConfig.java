@@ -36,8 +36,10 @@ public class AppConfig { // 의존 관계 역전을 일으키므로 IoC 컨테�
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return null;
     }
+
 
 
 }
